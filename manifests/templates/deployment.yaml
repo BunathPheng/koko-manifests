@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: koko
+  labels:
+    app: koko
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: koko
+  template:
+    metadata:
+      labels:
+        app: koko
+    spec:
+      containers:
+        - name: koko
+          image: docker.io/phengbunath/koko:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
